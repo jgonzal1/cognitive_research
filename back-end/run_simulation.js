@@ -1,11 +1,12 @@
-function fill_matrix(rows_size, cols_size = rows_size, n_elements, callback) {
+function fill_matrix(rows_size, cols_size = rows_size, callback) {
     let counter = 0;
     let htmlToFillColorsInMatrices;
     const prevHtmlToFillInCells = '<td ';
     const postHtmlToFillInCells = 'style=\
     "width:120px;height:120px;border:2px solid #282a2e;"\
     ></td>';
-    while (counter < n_elements) {
+    const elements_number = parseInt(document.getElementById("elements_number").innerText);
+    while (counter < elements_number) {
         counter = 0;
         htmlToFillColorsInMatrices = "";
         for (i = 0; i < rows_size; i++) {
@@ -20,7 +21,7 @@ function fill_matrix(rows_size, cols_size = rows_size, n_elements, callback) {
             }
             htmlToFillColorsInMatrices += '</tr>';
         }
-        if (counter === n_elements) {
+        if (counter === elements_number) {
             callback(htmlToFillColorsInMatrices)
         }
     }
@@ -30,11 +31,14 @@ function generate_matrix(rows_size, cols_size = rows_size) {
 
     let htmlToFillInMatrices = '<td align="center" valign="middle">';
     htmlToFillInMatrices += '<table id="matrix_table">';
-    fill_matrix(rows_size, cols_size, n_elements = 3, function(htmlToFillColorsInMatrices) {
+    fill_matrix(rows_size, cols_size, function(htmlToFillColorsInMatrices) {
         htmlToFillInMatrices += htmlToFillColorsInMatrices;
         htmlToFillInMatrices += '</table>';
         htmlToFillInMatrices += '</td>';
-        document.getElementById('exercise_placeholder').innerHTML = htmlToFillInMatrices;
+        document.getElementById('exercise_placeholder').innerHTML = ""
+        setTimeout(() => {
+            document.getElementById('exercise_placeholder').innerHTML = htmlToFillInMatrices;
+        }, 50);
     })
 }
 
