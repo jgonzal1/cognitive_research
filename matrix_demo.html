@@ -1,53 +1,24 @@
 <html>
 
 <head>
-    <style>
-        body {
-            background-color: #DCDCDC;
-        }
-        
-        #plano {
-            font-family: Tahoma, Verdana, Arial;
-            font-size: 12px;
-            color: #000000;
-            background-color: transparent;
-            border-width: 0;
-        }
-    </style>
     <script>
-        const htmlToFillInMatrices = '<td style=\
+        const htmlToFillInCells = '<td style=\
             "background-color:#f0c674;width:5px;height:5px;padding:5px 0px"\
         ></td>'
 
-        function OkSize(colA, filB) {
-            if (colA == filB) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         function genMatrices(rows_size, cols_size) {
-            document.write('<td align="center" valign="middle">');
-            // const matrixParentTd = document.createElement("TD"); matrixParentTd.id = "matrix_parent_td";
-            document.write('<table id="matrix_table">')
-                // const matrixTable = document.createElement("TABLE"); matrixTable.id = "matrix_table"
+            let htmlToFillInMatrices = '<td align="center" valign="middle">';
+            htmlToFillInMatrices += '<table id="matrix_table">';
             for (i = 0; i < rows_size; i++) {
-                document.write('<tr>')
+                htmlToFillInMatrices += '<tr>';
                 for (j = 0; j < cols_size; j++) {
-                    document.write('<td>' + htmlToFillInMatrices + '</td>')
+                    htmlToFillInMatrices += '<td>' + htmlToFillInCells + '</td>';
                 }
-                document.write('</tr>')
+                htmlToFillInMatrices += '</tr>'
             }
-            document.write('</table>')
-            document.write('</td>')
-
-            document.write('</tr>')
-            document.write('</table>');
-
-            var matrices = document.getElementById('tblMatrices');
-            document.getElementById('divMatrices').innerHTML = matrices;
-
+            htmlToFillInMatrices += '</table>';
+            htmlToFillInMatrices += '</td>';
+            document.getElementById('div_matrices').innerHTML = htmlToFillInMatrices;
         }
     </script>
 </head>
@@ -58,7 +29,7 @@
             <input name="btn_gen_matr" type="button" value="Generar Matrices" onclick="genMatrices(3, 3)" />
         </div>
         <br/>
-        <div id="divMatrices"> </div>
+        <div id="div_matrices"> </div>
     </form>
 </body>
 

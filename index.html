@@ -10,7 +10,7 @@
     <title>Cognitive Research</title>
     <link rel="icon" type="image/x-icon" href="front-end/dumbo.ico">
 
-    <script src="tasks.js"></script>
+    <script src="dummy_list.js"></script>
     <script src="front-end/jquery.3.4.1.min.js"></script>
     <script src="front-end/popper.min.js"></script>
     <script src="front-end/bootstrap.min.js"></script>
@@ -99,8 +99,8 @@
                     </table>
                     <div style="height: 10px;"></div>
                     <!-- Create a div where the graph will take place -->
-                    <div id="tasks_word_cloud_placeholder"></div>
-                    <button class="btn btn-success bottom-buttons">Empezar</button>
+                    <div id="dummy_list_word_cloud_placeholder"></div>
+                    <button class="btn btn-success bottom-buttons" onClick="runSimulation()">Empezar</button>
                     <button class="btn btn-danger bottom-buttons">Cerrar</button>
                     <!-- btn-basic -->
                     <br><br>
@@ -125,13 +125,13 @@
     <script>
         const milliseconds_in_a_day = 1000 * 60 * 60 * 24;
         new Date(new Date() - new Date(2020, 2, 3)) / (1000 * 60 * 60 * 24); // diferencia en días
-        var myTags = tasks.map(function(el) {
+        var myTags = dummy_list.map(function(el) {
             return {
                 text: el["name"],
                 weight: Math.round(new Date(el["endDate"] - el["startDate"]) / milliseconds_in_a_day)
             }
         });
-        /*$("#tasks_word_cloud_placeholder").jQCloud(
+        /*$("#dummy_list_word_cloud_placeholder").jQCloud(
             myTags, {
                 //Assuming 20 days the most for a task
                 fontSize: Array.from({

@@ -102,7 +102,7 @@ td:first-child {
     text-align: center
 }
 
-#tasks_word_cloud_placeholder {
+#dummy_list_word_cloud_placeholder {
     height: 400px;
     width: 400px;
     top: -100px !important;

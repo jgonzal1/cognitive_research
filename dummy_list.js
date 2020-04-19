@@ -1,53 +1,51 @@
-const tasks =
- [
-    {
+const dummy_list = [{
         id: 0,
         name: 'run_partition_simulation_drug_1',
         subject: 'practices',
         startDate: new Date(2020, 3, 28),
-        endDate: new Date(2020, 3, 29) 
+        endDate: new Date(2020, 3, 29)
     },
     {
         id: 1,
         name: 'qm_force_field_vaccuum',
         subject: 'masters-thesis',
         startDate: new Date(2020, 3, 30),
-        endDate: new Date(2020, 3, 31) 
+        endDate: new Date(2020, 3, 31)
     },
     {
         id: 2,
         name: 'qm_force_field_water',
         subject: 'masters-thesis',
         startDate: new Date(2020, 4, 1),
-        endDate: new Date(2020, 4, 5) 
+        endDate: new Date(2020, 4, 5)
     },
     {
         id: 3,
         name: 'run_partition_simulation_drug_2',
         subject: 'practices',
         startDate: new Date(2020, 3, 30),
-        endDate: new Date(2020, 4, 3) 
+        endDate: new Date(2020, 4, 3)
     },
     {
         id: 4,
         name: 'run_partition_simulation_drug_3',
         subject: 'practices',
         startDate: new Date(2020, 4, 6),
-        endDate: new Date(2020, 4, 10) 
+        endDate: new Date(2020, 4, 10)
     },
     {
         id: 5,
         name: 'write_masters_thesis_report',
         subject: 'masters-thesis',
         startDate: new Date(2020, 4, 11),
-        endDate: new Date(2020, 4, 12) 
+        endDate: new Date(2020, 4, 12)
     },
     {
         id: 6,
         name: 'biological_force_field_complete_in_report',
         subject: 'masters-thesis',
         startDate: new Date(2020, 4, 13),
-        endDate: new Date(2020, 4, 26) 
+        endDate: new Date(2020, 4, 26)
     },
     {
         id: 7,
