@@ -11,6 +11,7 @@
     <link rel="icon" type="image/x-icon" href="front-end/dumbo.ico">
 
     <script src="dummy_list.js"></script>
+    <script src="back-end/set_option_to_dom.js"></script>
     <script src="back-end/run_simulation.js"></script>
     <script src="front-end/jquery.3.4.1.min.js"></script>
     <script src="front-end/popper.min.js"></script>
@@ -69,7 +70,7 @@
                                     <button type="button" id="matrix_size" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                         3x3
                                     </button>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" id="matrix_size_dropdown">
                                         <a class="dropdown-item" href="#">4x4</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">5x5</a>
@@ -83,16 +84,16 @@
                                     <button type="button" id="elements_number" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                         3
                                 </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">1</a>
-                                        <a class="dropdown-item" href="#">2</a>
-                                        <a class="dropdown-item" href="#">3</a>
-                                        <a class="dropdown-item" href="#">4</a>
+                                    <div class="dropdown-menu" id="elements_number_dropdown">
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("1", "elements_number")'>1</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("2", "elements_number")'>2</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("3", "elements_number")'>3</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("4", "elements_number")'>4</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">5</a>
-                                        <a class="dropdown-item" href="#">6</a>
-                                        <a class="dropdown-item" href="#">7</a>
-                                        <a class="dropdown-item" href="#">8</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("5", "elements_number")'>5</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("6", "elements_number")'>6</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("7", "elements_number")'>7</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("8", "elements_number")'>8</a>
                                     </div>
                                     elementos.
                                 </div>
