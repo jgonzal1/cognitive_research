@@ -6,7 +6,9 @@ function fill_matrix(rows_size, cols_size = rows_size, callback) {
     "width:120px;height:120px;border:2px solid #282a2e;"\
     ></td>';
     const elements_number = parseInt(document.getElementById("elements_number").innerText);
-    const p_fill = (1 - (elements_number / 18));
+    const matrix_size = parseInt(document.getElementById("matrix_size").innerText.substring(0, 1));
+    const p_fill = (1 - (elements_number / 18 /*(matrix_size ^ 2) * 2*/ ));
+    console.log(matrix_size + " " + p_fill)
     while (counter < elements_number) {
         counter = 0;
         htmlToFillColorsInMatrices = "";
@@ -42,18 +44,32 @@ function generate_matrix(rows_size, cols_size = rows_size) {
     })
 }
 
+function inform_option_not_implemented(exercise_selection, element_selection) {
+    document.getElementById('exercise_placeholder').innerText =
+        "Opción de ejercicio " + exercise_selection +
+        " con los elementos " + element_selection +
+        " aún no implementada.";
+}
+
 function runSimulation() {
     const exercise_selection = document.getElementById("exercise_selection").value;
     const element_selection = document.getElementById("element_selection").value;
     const matrix_size = parseInt(document.getElementById("matrix_size").innerText.substring(0, 1));
-    // const elements_number = parseInt(document.getElementById("elements_number").innerText);
-    // console.log("Exercise selection: " + exercise_selection);
-    // console.log("Element selection: " + element_selection);
-    // console.log("matrix_size selection: " + matrix_size);
-    // console.log("elements_number selection: " + elements_number);
     if (exercise_selection === "Memoria rápida") {
         if (element_selection === "Matrices") {
             generate_matrix(matrix_size);
+        } else {
+            inform_option_not_implemented(exercise_selection, element_selection)
         }
+    } else if (exercise_selection === "Aritmética") {
+        if (true) {
+
+        } else if (3 < 2) {
+
+        } else {
+            inform_option_not_implemented(exercise_selection, element_selection)
+        }
+    } else {
+        inform_option_not_implemented(exercise_selection, element_selection)
     }
 }

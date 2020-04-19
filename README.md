@@ -1,12 +1,15 @@
 # cognitive_research
+Javi  : aritmetica numeros y figuras en este caso,
+Javi  : aleatoriamemte cifras en azul y otras en rojo (suman y restan), los simbolos -+ pierdes tiempo
+David : direcciones con flechas
 
 Javi  : Tareas: meoria rapida
 Javi  : aparece serie numeros, colores, figuras o matrices, y memorizar en tiempo segundos retentiva cada 5s 3 cifras 10 turnos memorizando, al final se preguntan
 Javi  : Tick de refresco cada vez
-Javi  : aritmetica numeros y figuras en este caso, aleatorisamemte cifras en azul y otras enn reojo (suman yt restan), los simbolos -+ pierdes tiempo
+
 Javi  : algebra: salir un igual en mitad y a los dos lados un polinomio, azul positivos rojo negativos
 Javi  : memorizar comunes en matrices: puzzles visuales
-Javi  : lo mismo con figuras y con coloresç
+Javi  : lo mismo con figuras y con colores
 Javi  : (6 colores)
 Javi  : negrpo y blanco incluidos
 Javi  : matriz se enciende una posicion, memorizar, una por matriz (4x4);  configurable: 2 posiciones (hasta 4), una en un color y otra en otro; sucesion y recordarc posicion y distinguir seguda posiciones: sale posicion inicial (1 o 2); y uego salen direcciones. desplaxar hastael lado que pone.  matriz continua, los extremos se tocan. si se sekeccionan 2 items, cada turno una flecha azul y otra roja, una fkecha poir item. matriz 5x5->8x8 aqui hasta 8 items. un solo turno
