@@ -1,14 +1,12 @@
-function generate_matrix(rows_size, cols_size = rows_size) {
+function fill_matrix(rows_size, cols_size = rows_size, n_elements, callback) {
+    let counter = 0;
+    let htmlToFillColorsInMatrices;
     const prevHtmlToFillInCells = '<td ';
     const postHtmlToFillInCells = 'style=\
     "width:120px;height:120px;border:2px solid #282a2e;"\
     ></td>';
-    let htmlToFillInMatrices = '<td align="center" valign="middle">';
-    htmlToFillInMatrices += '<table id="matrix_table">';
-    let n_elements = 3;
-    let counter = 0;
-    let htmlToFillColorsInMatrices;
     while (counter < n_elements) {
+        counter = 0;
         htmlToFillColorsInMatrices = "";
         for (i = 0; i < rows_size; i++) {
             htmlToFillColorsInMatrices += '<tr>';
@@ -22,12 +20,22 @@ function generate_matrix(rows_size, cols_size = rows_size) {
             }
             htmlToFillColorsInMatrices += '</tr>';
         }
+        if (counter === n_elements) {
+            callback(htmlToFillColorsInMatrices)
+        }
     }
+}
 
-    htmlToFillInMatrices += htmlToFillColorsInMatrices;
-    htmlToFillInMatrices += '</table>';
-    htmlToFillInMatrices += '</td>';
-    document.getElementById('exercise_placeholder').innerHTML = htmlToFillInMatrices;
+function generate_matrix(rows_size, cols_size = rows_size) {
+
+    let htmlToFillInMatrices = '<td align="center" valign="middle">';
+    htmlToFillInMatrices += '<table id="matrix_table">';
+    fill_matrix(rows_size, cols_size, n_elements = 3, function(htmlToFillColorsInMatrices) {
+        htmlToFillInMatrices += htmlToFillColorsInMatrices;
+        htmlToFillInMatrices += '</table>';
+        htmlToFillInMatrices += '</td>';
+        document.getElementById('exercise_placeholder').innerHTML = htmlToFillInMatrices;
+    })
 }
 
 function runSimulation() {
