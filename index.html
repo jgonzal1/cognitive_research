@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <!--<link rel="stylesheet" href="front-end/jqcloud.css">-->
+    <link rel="stylesheet" href="front-end/bootstrap.min.css">
+    <link rel="stylesheet" href="front-end/jquery-ui.css">
+    <link rel="stylesheet" href="front-end/style.css">
+
+    <title>Cognitive Research</title>
+    <link rel="icon" type="image/x-icon" href="front-end/dumbo.ico">
+
+    <script src="tasks.js"></script>
+    <script src="front-end/jquery.3.4.1.min.js"></script>
+    <script src="front-end/popper.min.js"></script>
+    <script src="front-end/bootstrap.min.js"></script>
+    <!--<script src="front-end/jqcloud.js"></script>-->
+</head>
+
+<body>
+    <!-- DOM -->
+    <table>
+        <tr>
+            <td>
+                <div class="container p-3 my-3 border" id="main_container">
+                    <h2 class="left">Cognitive Research</h2>
+                    <img id="logo" src="./front-end/dsoa.png">
+                    <table class="table-bordered" style="background-color: #EEEEEE;">
+                        <tr>
+                            <td>
+                                Ejercicio
+                            </td>
+                            <td>
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <label for="x_list"></label>
+                                    <select class="form-control" id="x_list">
+                                        <option>Memoria rápida</option>
+                                        <option>Aritmétrica</option>
+                                        <option>Álgebra</option>
+                                        <option>Habilidad visioespacial</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Elemento a memorizar
+                            </td>
+                            <td>
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <label for="x_list"></label>
+                                    <select class="form-control" id="x_list">
+                                        <option>Matrices</option>
+                                        <option>Figuras (3)</option>
+                                        <option>Colores (6)</option>
+                                        <option>Números (3 cifras)</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Parámetros
+                            </td>
+                            <td>
+                                <div class="dropdown left">
+                                    Matriz
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        3x3
+                                </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">4x4</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">5x5</a>
+                                        <a class="dropdown-item" href="#">6x6</a>
+                                        <a class="dropdown-item" href="#">7x7</a>
+                                        <a class="dropdown-item" href="#">8x8</a>
+                                    </div>
+                                </div>
+                                <div style="height:10px"></div>
+                                <div class="dropdown left">
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        1
+                                </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">2</a>
+                                        <a class="dropdown-item" href="#">3</a>
+                                        <a class="dropdown-item" href="#">4</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">5</a>
+                                        <a class="dropdown-item" href="#">6</a>
+                                        <a class="dropdown-item" href="#">7</a>
+                                        <a class="dropdown-item" href="#">8</a>
+                                    </div>
+                                    elementos.
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="height: 10px;"></div>
+                    <!-- Create a div where the graph will take place -->
+                    <div id="tasks_word_cloud_placeholder"></div>
+                    <button class="btn btn-success bottom-buttons">Empezar</button>
+                    <button class="btn btn-danger bottom-buttons">Cerrar</button>
+                    <!-- btn-basic -->
+                    <br><br>
+                    <div class="alert alert-success alert-dismissible fade show" style="display:none">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>¡Guardado!</strong> Cambios guardados.
+                    </div>
+                </div>
+            </td>
+            <td class="overflow-scroll-gradient">
+                <span id="subject_placeholder"></span>
+                <canvas id="matrix">
+            </canvas>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script src="front-end/jquery-ui.js"></script>
+
+    <!-- word cloud -->
+    <script>
+        const milliseconds_in_a_day = 1000 * 60 * 60 * 24;
+        new Date(new Date() - new Date(2020, 2, 3)) / (1000 * 60 * 60 * 24); // diferencia en días
+        var myTags = tasks.map(function(el) {
+            return {
+                text: el["name"],
+                weight: Math.round(new Date(el["endDate"] - el["startDate"]) / milliseconds_in_a_day)
+            }
+        });
+        /*$("#tasks_word_cloud_placeholder").jQCloud(
+            myTags, {
+                //Assuming 20 days the most for a task
+                fontSize: Array.from({
+                    length: 20
+                }, (v, i) => 21 - i)
+            }
+        );*/
+    </script>
+</body>
+
+</html>
