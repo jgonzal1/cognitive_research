@@ -11,6 +11,7 @@
     <link rel="icon" type="image/x-icon" href="front-end/dumbo.ico">
 
     <script src="dummy_list.js"></script>
+    <script src="back-end/run_simulation.js"></script>
     <script src="front-end/jquery.3.4.1.min.js"></script>
     <script src="front-end/popper.min.js"></script>
     <script src="front-end/bootstrap.min.js"></script>
@@ -32,8 +33,8 @@
                             </td>
                             <td>
                                 <div class="form-group" style="margin-bottom: 0px;">
-                                    <label for="x_list"></label>
-                                    <select class="form-control" id="x_list">
+                                    <label for="exercise_selection"></label>
+                                    <select class="form-control" id="exercise_selection">
                                         <option>Memoria rápida</option>
                                         <option>Aritmétrica</option>
                                         <option>Álgebra</option>
@@ -48,8 +49,8 @@
                             </td>
                             <td>
                                 <div class="form-group" style="margin-bottom: 0px;">
-                                    <label for="x_list"></label>
-                                    <select class="form-control" id="x_list">
+                                    <label for="element_selection"></label>
+                                    <select class="form-control" id="element_selection">
                                         <option>Matrices</option>
                                         <option>Figuras (3)</option>
                                         <option>Colores (6)</option>
@@ -65,9 +66,9 @@
                             <td>
                                 <div class="dropdown left">
                                     Matriz
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    <button type="button" id="matrix_size" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                         3x3
-                                </button>
+                                    </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">4x4</a>
                                         <div class="dropdown-divider"></div>
@@ -79,7 +80,7 @@
                                 </div>
                                 <div style="height:10px"></div>
                                 <div class="dropdown left">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    <button type="button" id="elements_number" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                         1
                                 </button>
                                     <div class="dropdown-menu">
@@ -111,10 +112,10 @@
                 </div>
             </td>
             <td class="overflow-scroll-gradient">
-                <span id="subject_placeholder"></span>
-                <canvas id="matrix">
-            </canvas>
+                <span id="title_placeholder"></span>
+                <div id="exercise_placeholder">
                 </div>
+                <!--<canvas>-->
             </td>
         </tr>
     </table>
