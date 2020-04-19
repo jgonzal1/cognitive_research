@@ -2,13 +2,8 @@
     padding: 5px;
 }
 
-
-/*body {
-    width: 1000px;
-}*/
-
 table {
-    max-width: 650px;
+    max-width: 1000px;
 }
 
 img {
@@ -53,7 +48,7 @@ td:first-child {
     bottom: 0;
     width: 600px;
     height: 600px;
-    background: linear-gradient(transparent, white);
+    background: linear-gradient(#FFFFFF00, #FFFFFFAA);
     pointer-events: none;
 }
 
