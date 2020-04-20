@@ -1,3 +1,9 @@
+const geometric_shapes = "■ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ \
+▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ► ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◄ ◅ ◆ ◇ \
+◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◘ ◙ ◚ ◛ ◜ ◝ ◞ ◟ ◠ \
+◡ ◢ ◣ ◤ ◥ ◦ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶ ◷ ◸ ◹ \
+◺ ◻ ◼ ◽ ◾ ◿";
+
 function fill_matrix(rows_size, cols_size = rows_size, callback) {
     let counter = 0;
     let htmlToFillColorsInMatrices;
@@ -22,6 +28,21 @@ function fill_matrix(rows_size, cols_size = rows_size, callback) {
                 if (Math.random() > p_fill) {
                     if (element_selection === "Matrices") {
                         htmlToFillColorsInMatrices += prevHtmlToFillInCells + 'class="blue"' + postHtmlToFillInCells;
+                    } else if (element_selection === "Colores") {
+                        let color;
+                        const color_selector = Math.random()
+                        if (color_selector < 0.25) {
+                            color = "red"
+                        } else if (color_selector >= 0.25 & color_selector < 0.5) {
+                            color = "yellow"
+                        } else if (color_selector >= 0.5 & color_selector < 0.75) {
+                            color = "blue"
+                        } else if (color_selector >= 0.75 & color_selector < 1) {
+                            color = "purple"
+                        } else {
+                            color = "white"
+                        }
+                        htmlToFillColorsInMatrices += prevHtmlToFillInCells + 'class="' + color + '"' + postHtmlToFillInCells;
                     } else if (element_selection === "Números") {
                         let color;
                         if (Math.random() < 0.5) {
@@ -33,10 +54,26 @@ function fill_matrix(rows_size, cols_size = rows_size, callback) {
                         "color:' + color + ';font-size:100px;font-weight:bolder;width:120px;height:120px;"\
                         >' + Math.floor(10 * Math.random()) + '</td>';
                         htmlToFillColorsInMatrices += prevHtmlToFillInCells + postHtmlToFillInCells;
+                    } else if (element_selection === "Figuras") {
+                        let figure;
+                        const figure_selector = Math.random()
+                        if (figure_selector < 0.33) {
+                            figure = "▲"
+                        } else if (figure_selector > 0.66) {
+                            figure = "◉"
+                        } else {
+                            figure = "■"
+                        }
+                        postHtmlToFillInCells = 'style=font-size:100px;font-weight:bolder;width:120px;height:120px;"\
+                        >' + figure + '</td>';
+                        htmlToFillColorsInMatrices += prevHtmlToFillInCells + postHtmlToFillInCells;
                     }
                     counter += 1
                 } else {
-                    if (element_selection === "Matrices") {
+                    if (
+                        element_selection === "Colores" ||
+                        element_selection === "Matrices"
+                    ) {
                         postHtmlToFillInCells = 'style=\
                             "width:120px;height:120px;border:2px solid #282a2e;"\
                             ></td>';
@@ -81,22 +118,47 @@ function runSimulation() {
     const element_selection = document.getElementById("element_selection").value;
     const matrix_size = parseInt(document.getElementById("matrix_size").innerText.substring(0, 1));
     if (exercise_selection === "Memoria rápida") {
-        if (element_selection === "Matrices") {
+        document.getElementById("title_placeholder").innerText = "";
+        generate_matrix(matrix_size);
+    } else if (exercise_selection === "Aritmética") {
+        document.getElementById("title_placeholder").innerText = "";
+        if (element_selection === "Números") {
             generate_matrix(matrix_size);
         } else {
             inform_option_not_implemented(exercise_selection, element_selection)
         }
-    } else if (exercise_selection === "Aritmética") {
+    } else if (exercise_selection === "Habilidad visioespacial") {
         if (element_selection === "Figuras") {
-            console.log(1)
-        } else if (element_selection === "Números") {
+            let direction;
+            const direction_selector = Math.random()
+            if (direction_selector < 0.25) {
+                direction = "→"
+            } else if (direction_selector >= 0.25 & direction_selector < 0.5) {
+                direction = "↓"
+            } else if (direction_selector >= 0.5 & direction_selector < 0.75) {
+                direction = "←"
+            } else if (direction_selector >= 0.75 & direction_selector < 1) {
+                direction = "↑"
+            } else {
+                direction = "→"
+            }
+            let figure;
+            const figure_selector = Math.random()
+            if (figure_selector < 0.33) {
+                figure = "▲"
+            } else if (figure_selector > 0.66) {
+                figure = "◉"
+            } else {
+                figure = "■"
+            }
+            document.getElementById("title_placeholder").innerText = figure + " " + direction;
             generate_matrix(matrix_size);
         } else {
-            console.log(3)
+            document.getElementById("title_placeholder").innerText = "";
             inform_option_not_implemented(exercise_selection, element_selection)
         }
     } else {
-        console.log(4)
+        document.getElementById("title_placeholder").innerText = "";
         inform_option_not_implemented(exercise_selection, element_selection)
     }
     console.log(`exercise_selection === ${exercise_selection}, element_selection === ${element_selection})`)

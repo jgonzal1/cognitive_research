@@ -26,7 +26,6 @@
             <td>
                 <div class="container p-3 my-3 border" id="main_container">
                     <h2 class="left">Cognitive Research</h2>
-                    <img id="logo" src="./front-end/dsoa.png">
                     <table class="table-bordered" style="background-color: #EEEEEE;">
                         <tr>
                             <td class="header_col">
@@ -38,7 +37,7 @@
                                     <select class="form-control" id="exercise_selection">
                                         <option>Memoria rápida</option>
                                         <option>Aritmética</option>
-                                        <option>Álgebra</option>
+                                        <option style="color:#CCCCCC">Álgebra</option>
                                         <option>Habilidad visioespacial</option>
                                     </select>
                                 </div>
@@ -61,7 +60,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="header_col">
+                            <td>
                                 Parámetros
                             </td>
                             <td>
@@ -75,9 +74,9 @@
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("4x4", "matrix_size")'>4x4</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("5x5", "matrix_size")'>5x5</a>
-                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("6x6", "matrix_size")'>6x6</a>
+                                        <!--<a class="dropdown-item" href="#" onClick='setOptionToDom("6x6", "matrix_size")'>6x6</a>
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("7x7", "matrix_size")'>7x7</a>
-                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("8x8", "matrix_size")'>8x8</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("8x8", "matrix_size")'>8x8</a>-->
                                     </div>
                                 </div>
                                 <div style="height:10px"></div>
@@ -102,11 +101,13 @@
                         </tr>
                     </table>
                     <div style="height: 10px;"></div>
-                    <!-- Create a div where the graph will take place -->
+                    <!--
+                    Create a div where the graph will take place
                     <div id="dummy_list_word_cloud_placeholder"></div>
-                    <button class="btn btn-success bottom-buttons" onClick="runSimulation()">Empezar</button>
-                    <button class="btn btn-danger bottom-buttons">Cerrar</button>
-                    <!-- btn-basic -->
+                    -->
+                    <br>
+                    <button class="btn btn-primary bottom-buttons" onClick="runSimulation()">Simular ejercicio</button>
+                    <!-- btn-success o btn-danger -->
                     <br><br>
                     <div class="alert alert-success alert-dismissible fade show" style="display:none">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -115,17 +116,15 @@
                 </div>
             </td>
             <td class="overflow-scroll-gradient">
-                <span id="title_placeholder"></span>
+                <div id="title_placeholder"></div>
                 <div id="exercise_placeholder">
                 </div>
-                <!--<canvas>-->
             </td>
         </tr>
     </table>
 
     <script src="front-end/jquery-ui.js"></script>
 
-    <!-- word cloud -->
     <script>
         const milliseconds_in_a_day = 1000 * 60 * 60 * 24;
         new Date(new Date() - new Date(2020, 2, 3)) / (1000 * 60 * 60 * 24); // diferencia en días
@@ -135,7 +134,7 @@
                 weight: Math.round(new Date(el["endDate"] - el["startDate"]) / milliseconds_in_a_day)
             }
         });
-        /*$("#dummy_list_word_cloud_placeholder").jQCloud(
+        /*word_cloud $("#dummy_list_word_cloud_placeholder").jQCloud(
             myTags, {
                 //Assuming 20 days the most for a task
                 fontSize: Array.from({

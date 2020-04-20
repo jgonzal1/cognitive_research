@@ -33,11 +33,6 @@ td {
     text-align: left;
 }
 
-.bottom-buttons {
-    position: relative;
-    top: -120px !important;
-}
-
 .overflow-scroll-gradient {
     position: relative;
 }
@@ -61,24 +56,12 @@ td {
     line-height: 1.2;
 }
 
-#logo {
-    z-index: 1;
-    height: 100px;
-    width: 100px;
-    top: 24px;
-    left: 450px;
-}
-
 #img_edit {
     z-index: 1;
     height: 32px;
     width: 32px;
     top: 290px;
     left: 380px;
-}
-
-#main_container {
-    height: 600px;
 }
 
 #matrix {
@@ -95,6 +78,11 @@ td {
     left: 100px;
     width: 400px;
     text-align: center
+}
+
+#title_placeholder {
+    text-align: center;
+    font-size: 100px;
 }
 
 #dummy_list_word_cloud_placeholder {
