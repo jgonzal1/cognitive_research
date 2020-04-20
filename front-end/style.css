@@ -20,7 +20,7 @@ td {
     padding-bottom: 4px;
 }
 
-td:first-child {
+.header_col {
     text-align: right
 }
 
@@ -48,7 +48,7 @@ td:first-child {
     bottom: 0;
     width: 600px;
     height: 600px;
-    background: linear-gradient(#FFFFFF00, #FFFFFFAA);
+    background: linear-gradient(#FFFFFF00, #FFFFFFCC);
     pointer-events: none;
 }
 
