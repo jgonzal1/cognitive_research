@@ -1,4 +1,9 @@
 # cognitive_research
+
+Matriz 3x4, etc. Intermedios
+
+Hacer desaparecer los de memoria rápida, tiempo de exposición (segundos).
+
 Javi  : aritmetica numeros y figuras en este caso,
 Javi  : aleatoriamemte cifras en azul y otras en rojo (suman y restan), los simbolos -+ pierdes tiempo
 David : direcciones con flechas
