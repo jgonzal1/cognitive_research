@@ -27,8 +27,14 @@ function assign_n_figures(n) {
         figure = "◉";
     } else if (figure_selector == 2) {
         figure = "▲";
-    } else {
+    } else if (figure_selector == 3) {
         figure = "■";
+    } else if (figure_selector == 4) {
+        figure = "◯";
+    } else if (figure_selector == 5) {
+        figure = "△";
+    } else {
+        figure = "▭";
     }
     return figure;
 }
@@ -64,7 +70,8 @@ function fill_occupied_cell(htmlToFillContentsInMatrices, postHtmlToFillInCells)
         >' + Math.floor(10 * Math.random()) + '</td>';
         htmlToFillContentsInMatrices += '<td ' + postHtmlToFillInCells;
     } else if (element_selection === "Figuras") {
-        const figure = assign_n_figures(3);
+        const elements_number = parseInt(document.getElementById("elements_number").innerText);
+        const figure = assign_n_figures(elements_number);
         postHtmlToFillInCells = ' style=font-size:100px;font-weight:bolder;width:120px;height:120px;"\
         >' + figure + '</td>';
         htmlToFillContentsInMatrices += '<td ' + postHtmlToFillInCells;
@@ -118,6 +125,7 @@ function fill_matrix(rows_size, cols_size = rows_size, callback) {
         for (i = 0; i < rows_size; i++) {
             htmlToFillContentsInMatrices += '<tr>';
             for (j = 0; j < cols_size; j++) {
+                console.log(`Atrapado`);
                 [counter, htmlToFillContentsInMatrices] = fill_row(counter, htmlToFillContentsInMatrices, postHtmlToFillInCells);
             }
             htmlToFillContentsInMatrices += '</tr>';
@@ -128,10 +136,11 @@ function fill_matrix(rows_size, cols_size = rows_size, callback) {
     }
 }
 
-function generate_matrix(rows_size, cols_size = rows_size) {
+function generate_matrix(rows_size, cols_size = rows_size, callback) {
     let htmlToFillInMatrices = '<td align="center" valign="middle">';
     htmlToFillInMatrices += '<table id="matrix_table">';
     fill_matrix(rows_size, cols_size, function(htmlToFillContentsInMatrices) {
+        console.log(`terminado fill_matrix`)
         htmlToFillInMatrices += htmlToFillContentsInMatrices;
         htmlToFillInMatrices += '</table>';
         htmlToFillInMatrices += '</td>';
@@ -141,6 +150,7 @@ function generate_matrix(rows_size, cols_size = rows_size) {
         setTimeout(() => {
             document.getElementById('exercise_placeholder').innerHTML = "";
             document.getElementById("run_simulation_button").disabled = false;
+            callback(true)
         }, exposition_milliseconds);
     })
 }
@@ -156,22 +166,24 @@ function run_simulation() {
     const exercise_selection = document.getElementById("exercise_selection").value;
     const element_selection = document.getElementById("element_selection").value;
     const matrix_size = parseInt(document.getElementById("matrix_size").innerText.substring(0, 1));
-    if (exercise_selection === "Memoria rápida") {
+    if (exercise_selection === "Memoria") {
         document.getElementById("title_placeholder").innerText = "";
-        generate_matrix(matrix_size);
+        generate_matrix(matrix_size, function() {});
     } else if (exercise_selection === "Aritmética") {
         document.getElementById("title_placeholder").innerText = "";
         if (element_selection === "Números") {
-            generate_matrix(matrix_size);
+            generate_matrix(matrix_size, function() {});
         } else {
             inform_option_not_implemented(exercise_selection, element_selection)
         }
-    } else if (exercise_selection === "Habilidad visioespacial") {
+    } else if (exercise_selection === "Puzzle visual") {
         if (element_selection === "Figuras") {
-            const direction = assign_random_direction();
-            const figure = assign_n_figures(3);
-            document.getElementById("title_placeholder").innerText = figure + " " + direction;
-            generate_matrix(matrix_size);
+            generate_matrix(matrix_size, function() {
+                const elements_number = parseInt(document.getElementById("elements_number").innerText);
+                const figure = assign_n_figures(elements_number);
+                const direction = assign_random_direction();
+                document.getElementById("title_placeholder").innerText = figure + " " + direction;
+            });
         } else {
             document.getElementById("title_placeholder").innerText = "";
             inform_option_not_implemented(exercise_selection, element_selection)
