@@ -41,16 +41,6 @@ td {
     position: relative;
 }
 
-.overflow-scroll-gradient::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(#FFFFFF00, #FFFFFFCC);
-    pointer-events: none;
-}
-
 .overflow-scroll-gradient-scroller {
     overflow-y: scroll;
     background: white;

@@ -1,5 +1,7 @@
 # cognitive_research
 
+Reparar colores en memoria rápida
+
 Matriz 3x4, etc. Intermedios
 
 Hacer desaparecer los de memoria rápida, tiempo de exposición (segundos).
