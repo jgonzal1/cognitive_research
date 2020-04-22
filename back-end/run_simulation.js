@@ -135,10 +135,13 @@ function generate_matrix(rows_size, cols_size = rows_size) {
         htmlToFillInMatrices += htmlToFillContentsInMatrices;
         htmlToFillInMatrices += '</table>';
         htmlToFillInMatrices += '</td>';
-        document.getElementById('exercise_placeholder').innerHTML = ""
+        document.getElementById('exercise_placeholder').innerHTML = htmlToFillInMatrices
+        const exposition_milliseconds = parseInt(document.getElementById("exposition_seconds_placeholder").innerText * 1000)
+        document.getElementById("run_simulation_button").disabled = true;
         setTimeout(() => {
-            document.getElementById('exercise_placeholder').innerHTML = htmlToFillInMatrices;
-        }, 50);
+            document.getElementById('exercise_placeholder').innerHTML = "";
+            document.getElementById("run_simulation_button").disabled = false;
+        }, exposition_milliseconds);
     })
 }
 

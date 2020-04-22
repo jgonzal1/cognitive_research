@@ -14,14 +14,18 @@ div {
     text-align: center;
 }
 
-label,
+label {
+    margin-bottom: 0px;
+}
+
 td {
     padding-top: 0px;
     padding-bottom: 4px;
 }
 
 .header_col {
-    text-align: right
+    text-align: right;
+    padding: 0px 5px;
 }
 
 .badge {
@@ -90,11 +94,6 @@ td {
     width: 400px;
     top: -100px !important;
     left: 0px !important;
-}
-
-#exercise_selection {
-    position: relative;
-    top: -10px;
 }
 
 .black {

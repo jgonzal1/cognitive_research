@@ -32,8 +32,8 @@
                                 Ejercicio
                             </td>
                             <td>
-                                <div class="form-group" style="margin-bottom: 0px;">
-                                    <label for="exercise_selection"></label>
+                                <div>
+                                    <!--<label for="exercise_selection"></label>-->
                                     <select class="form-control" id="exercise_selection">
                                         <option>Memoria rápida</option>
                                         <option>Aritmética</option>
@@ -48,8 +48,8 @@
                                 Elemento a memorizar
                             </td>
                             <td>
-                                <div class="form-group" style="margin-bottom: 0px;">
-                                    <label for="element_selection"></label>
+                                <div style="margin-bottom: 0px;">
+                                    <!--<label for="element_selection"></label>-->
                                     <select class="form-control" id="element_selection">
                                         <option>Matrices</option>
                                         <option>Figuras</option><!-- (3) -->
@@ -60,12 +60,22 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="header_col">
+                                Tiempo de exposición
+                            </td>
+                            <td style="padding-bottom: 0px;">
+                                <input type="range" class="custom-range" id="exposition_seconds_slider">
+                                <p data-toggle="tooltip" style="position:relative; top:-12px; margin-bottom: -12px;" title="Cálculo aproximado. La precisión dependerá de la capacidad de refresco de tu pantalla">Segundos: <span id="exposition_seconds_placeholder"></span></p>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
                                 Parámetros
                             </td>
                             <td>
-                                <div class="dropdown left">
-                                    Matriz
+                                <div style="height:1px"></div>
+                                Matriz
+                                <span class="dropdown left">
                                     <button type="button" id="matrix_size" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                         3x3
                                     </button>
@@ -74,12 +84,12 @@
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("4x4", "matrix_size")'>4x4</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("5x5", "matrix_size")'>5x5</a>
-                                        <!--<a class="dropdown-item" href="#" onClick='setOptionToDom("6x6", "matrix_size")'>6x6</a>
+                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("6x6", "matrix_size")'>6x6</a>
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("7x7", "matrix_size")'>7x7</a>
-                                        <a class="dropdown-item" href="#" onClick='setOptionToDom("8x8", "matrix_size")'>8x8</a>-->
+                                        <!--<a class="dropdown-item" href="#" onClick='setOptionToDom("8x8", "matrix_size")'>8x8</a>-->
                                     </div>
-                                </div>
-                                <div class="dropdown left">
+                                </span> de
+                                <span class="dropdown left">
                                     <button type="button" id="elements_number" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                         3
                                 </button>
@@ -94,8 +104,8 @@
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("7", "elements_number")'>7</a>
                                         <a class="dropdown-item" href="#" onClick='setOptionToDom("8", "elements_number")'>8</a>
                                     </div>
-                                    elementos.
-                                </div>
+                                </span> elementos.
+                                <div style="height:1px"></div>
                             </td>
                         </tr>
                     </table>
@@ -105,7 +115,7 @@
                     <div id="dummy_list_word_cloud_placeholder"></div>
                     -->
                     <br>
-                    <button class="btn btn-primary bottom-buttons" onClick="run_simulation()">Simular ejercicio</button>
+                    <button id="run_simulation_button" class="btn btn-primary bottom-buttons" onClick="run_simulation()">Simular ejercicio</button>
                     <!-- btn-success o btn-danger -->
                     <br><br>
                     <div class="alert alert-success alert-dismissible fade show" style="display:none">
@@ -125,6 +135,16 @@
     <script src="front-end/jquery-ui.js"></script>
 
     <script>
+        const exposition_seconds_slider = document.getElementById("exposition_seconds_slider");
+        const exposition_seconds = document.getElementById("exposition_seconds_placeholder");
+        exposition_seconds.innerText = 2; // initial value (defaults 50)
+        exposition_seconds_slider.oninput = function() {
+            exposition_seconds.innerText = (this.value / 25) + 0.001;
+        }
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
         const milliseconds_in_a_day = 1000 * 60 * 60 * 24;
         new Date(new Date() - new Date(2020, 2, 3)) / (1000 * 60 * 60 * 24); // diferencia en días
         var myTags = dummy_list.map(function(el) {
