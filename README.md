@@ -1,6 +1,6 @@
 # cognitive_research
 
-## 2004??
+## 200420
 
 Reparar colores en memoria rápida
 
@@ -57,6 +57,7 @@ David : El primer dado corresponde a la morada, el segundo a la amarilla, el ter
 numeros o letras, recomienda ambas
 
 el caso mas sencillo con letras:
+excluimos ¿h?kñwxy
 
 suponemos matriz 2x2
 am
@@ -99,3 +100,39 @@ visioespaciales y verbales
 y memoria posicional
 
 se puede visualizar mentalmente la disposicion, mientras que pensamos
+
+recomendable 2x3... con bajada de tiempos razonables
+
+ademas es que habra 2 silabas 3 palabras y 3 silabas 2 palabras
+
+menos de 3 minutos es razonable con 3 cambios con todas las poperaciones apra subir de nivel, mas de 5 minutos es que "estas pasándote"
+
+--
+
+con numeros se hace lo inverso, se hace la suma de lo inverso que se haya rotado
+
+si son 3 ...
+
+123
+456
+789
+   
+ ↓ 
+   
+312
+456
+789
+
+--
+
+aleatorios para hacer 3 movimientos
+
+cronometro para operar mentalmente
+
+--
+
+reto:
+en el de numeros se puede hacer un sudoku de memoria
+en 3x4 se puede hacer
+sudoku generator 4x4 en menos de 2 minutos
+sin ver tableros en blanco, se lo imagina
