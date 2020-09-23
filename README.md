@@ -1,5 +1,7 @@
 # cognitive_research
 
+## 2004??
+
 Reparar colores en memoria rápida
 
 Matriz 3x4, etc. Intermedios
@@ -49,3 +51,51 @@ David : Es Hard
 Javi  : Jurr. Como?
 David : 1 arriba, 2 derecha, 3 abajo, 4 izda
 David : El primer dado corresponde a la morada, el segundo a la amarilla, el tercero a la roja y el cuarto a la blanca. Hago un par de turnos por juego sin mirar y luego coloco donde quedarían
+
+## 200923
+
+numeros o letras, recomienda ambas
+
+el caso mas sencillo con letras:
+
+suponemos matriz 2x2
+am
+ne
+
+por ejemplo (el contenido)
+
+aleatorizamos qué columna o fila rotamos,
+
+si se cambia una columna, se busca una palabra con cada fila
+
+por ejemplo toca que cambie a
+
+nm
+ae
+
+palabra que contenga las letras de cada fila
+
+Nemo
+caer
+
+pez payaso que se cae por un arrecife de coral (Nemo)
+
+ahora aleatorizamos una fila continuando el proceso
+
+nm
+ea
+
+nombre
+pena
+
+el otro dia abri el facebook y vi que habia una que se llamaba Mamen Rabazo, y su > nombre me dio pena
+
+otra rotacion, y se cronometra
+
+lo mas rapido posible
+
+visioespaciales y verbales
+
+y memoria posicional
+
+se puede visualizar mentalmente la disposicion, mientras que pensamos
