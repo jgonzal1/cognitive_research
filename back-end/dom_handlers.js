@@ -10,7 +10,7 @@ exposition_seconds_slider.oninput = function() {
 
 const matrix_size_dropdown = document.getElementById("matrix_size_dropdown");
 matrix_size_dropdown.onmouseout = function() {
-    const matrix_size = parseInt(document.getElementById("matrix_size").innerText.substring(0, 1));
+    const matrix_size = parseInt(document.getElementById("matrix_size").innerText.substring(0, 1), 10);
     if (matrix_size < 5) {
         document.getElementById("elements_number_dropdown_span").style.display = "inline"
         document.getElementById("elements_number_slider_span").style.display = "none"
